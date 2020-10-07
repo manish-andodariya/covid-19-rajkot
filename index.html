@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#ff3f34">
+    <link rel="icon" sizes="192x192" href="icon.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A sample Covid app">
+    <link rel="manifest" href="/manifest.json">
+    <title>Covid-19</title>
+
+    <style>
+        .state-head {
+            font-weight: 900;
+            text-decoration: underline;
+            padding-top: 25px;
+            border-top: 5px solid #ff3f34;
+        }
+
+        footer {
+            font-size: 18px;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 48px;
+            color: var(--text-color);
+        }
+
+        .loder {
+            background: url('./images/animation_300_kbluksap.gif') no-repeat center center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9999999;
+            background-color: #ffffff;
+        }
+
+        .content {
+            display: none;
+        }
+
+        #butInstall {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            background-color: #ff3f34;
+            color: aliceblue;
+            bottom: 20px;
+            right: 20px;
+
+        }
+
+        #butShare {
+            background-color: #ff3f34;
+            color: aliceblue;
+
+        }
+    </style>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="animate.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="jquery-3.5.0.min.js"></script>
+    <script src="materialize.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=ABeeZee|Baloo+Chettan+2|Baloo+Paaji+2|PT+Mono|Poppins|Roboto+Mono|Sarala&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light" id="butInstall"><i class="material-icons">add</i></a>
+    <div class="loder">
+    </div>
+    <div class="content">
+        <nav class="animated fadeIn slow">
+            <div class="nav-wrapper z-depth-2">
+                <a href="#" class="brand-logo center"
+                    style="font-family: 'Roboto Mono', monospace; font-size:24px;">COVID-19</a>
+                <a class="btn-floating btn-large waves-effect waves-light right z-depth-0" id="butShare"><i
+                        class="material-icons">share</i></a>
+            </div>
+        </nav>
+        <div class="container">
+
+            <div class="row animated zoomIn delay-2s" style="padding-top: 38px;">
+                <div class="col s12" style=" font-family: 'Baloo Paaji 2', cursive; font-size:24px; ">
+                    <i class="material-icons" style="vertical-align: -4px;">equalizer</i> &nbspCOVID-19 Updates
+                    <a onclick="M.toast({html: 'statistics is subject to further verification becouse this is not ofiicial website it`s only for knowledge and experiance perpose development.',classes: 'rounded',displayLength:10000});"
+                        style="color: #ff3f34; cursor: pointer;" class="right"><i class="material-icons"
+                            style=" vertical-align: -4px;">help</i></a></div>
+            </div>
+
+            <ul class="collapsible z-depth-2 animated zoomIn delay-2s"
+                style="font-family: 'Poppins', sans-serif; font-size:18px; font-weight:300;">
+                <!--li>
+                    <div class="collapsible-header waves-effect waves-black z-depth-2"><i class="material-icons">public</i>Global</div>
+                    <div class="collapsible-body">
+                        <span class="cases-global" style="font-family: 'Sarala', sans-serif; font-size:16px; font-weight:200">Updating...</span>
+                    </div>
+                </li-->
+                <li>
+                    <div class="collapsible-header z-depth-2 waves-effect "><i class="material-icons">flag</i>India
+                    </div>
+                    <div class="collapsible-body">
+                        <span class="cases-india"
+                            style="font-family: 'Sarala', sans-serif; font-size:16px; font-weight:200">Updating...</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header z-depth-2 waves-effect "><i class="material-icons">ballot</i>All
+                        State</div>
+                    <div class="collapsible-body">
+                        <span class="cases-india-state"
+                            style="font-family: 'Sarala', sans-serif; font-size:16px; font-weight:200">Updating...</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header z-depth-2 waves-effect "><i
+                            class="material-icons">location_city</i>Gujarat</div>
+                    <div class="collapsible-body">
+                        <span class="cases-gujarat"
+                            style="font-family: 'Sarala', sans-serif; font-size:16px; font-weight:200">Updating...</span>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="row animated zoomIn delay-2s">
+                <div class="col s12">
+                    <div class=" card z-depth-2">
+                        <div class="card-content">
+                            <span class="card-title col s12 "
+                                style=" font-family: 'Baloo Paaji 2', cursive; font-size:16px;">India Recovery Rate
+                                <span class="right rr-text"></span></span>
+                            <div class="progress ">
+                                <div class="determinate animated slideInLeft delay-3s slow rr-style"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row animated zoomIn delay-2s">
+                <div class="col s12">
+                    <div class=" card z-depth-2">
+                        <div class="card-content">
+                            <span class="card-title col s12"
+                                style=" font-family: 'Baloo Paaji 2', cursive; font-size:16px;">India Death Rate
+                                <span class="right dr-text"></span></span>
+                            <div class="progress">
+                                <div class="determinate animated slideInLeft delay-3s slow dr-style"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="animated zoomIn delay-2s">
+            Developed By Manish Prajapati.
+        </footer>
+    </div>
+
+    <!-- Modal Structure -->
+    <!--div id="modal" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src='your g-tag link'></script> -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        // gtag(your g-tag);
+    </script>
+
+
+    <script src="main.js "></script>
+    <script src="sw.js"></script>
+    <script src="install.js"></script>
+    <script>
+        if ('serviceWorker' in navigator)
+        {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => {
+                        console.log('Service worker registered.', reg);
+                    });
+            });
+        }
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+
+            function pop() {
+                $('#modal').modal();
+                $('#modal').modal('open');
+                clearInterval(interval);
+            }
+            var interval = setInterval(pop, 5000);
+        });
+        const shareData = {
+            title: 'Covid-19-Rajkot',
+            text: 'Get Covid-19 statistics of indian states,districts 👍 ',
+            url: 'https://covid-19-rajkot.web.app/',
+        }
+
+        const btn = document.querySelector('#butShare');
+
+        // Must be triggered some kind of "user activation"
+        btn.addEventListener('click', async () => {
+            try
+            {
+                await navigator.share(shareData)
+            } catch (err)
+            {
+                console.log(err);
+            }
+        });
+    </script>
+</body>
+
+</html>
